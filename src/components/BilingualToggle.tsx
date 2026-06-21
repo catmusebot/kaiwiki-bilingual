@@ -18,7 +18,7 @@ const labels: Record<BilingualMode, string> = {
 const modes: BilingualMode[] = ["en", "zh", "both"]
 
 function normalizeMode(value: unknown): BilingualMode {
-  return value === "en" || value === "zh" || value === "both" ? value : "both"
+  return value === "en" || value === "zh" || value === "both" ? value : "en"
 }
 
 function coerceBoolean(value: unknown): boolean {

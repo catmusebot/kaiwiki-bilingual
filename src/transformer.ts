@@ -3,7 +3,7 @@ import type { QuartzTransformerPlugin } from "@quartz-community/types"
 import type { BilingualOptions } from "./types"
 
 const defaultOptions: BilingualOptions = {
-  defaultMode: "both",
+  defaultMode: "en",
   storageKey: "kaiwiki-bilingual-mode",
 }
 
