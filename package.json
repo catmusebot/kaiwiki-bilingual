@@ -1,0 +1,71 @@
+{
+  "name": "kaiwiki-bilingual",
+  "version": "0.1.0",
+  "description": "Automatic paragraph-level bilingual reading mode for KaiWiki",
+  "type": "module",
+  "license": "MIT",
+  "author": "KaiWiki",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  },
+  "dependencies": {
+    "@quartz-community/types": "github:quartz-community/types",
+    "@quartz-community/utils": "github:quartz-community/utils"
+  },
+  "devDependencies": {
+    "@types/hast": "^3.0.4",
+    "@types/node": "^24.10.0",
+    "preact": "^10.28.2",
+    "sass": "^1.97.3",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vfile": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10.9.2"
+  },
+  "quartz": {
+    "name": "kaiwiki-bilingual",
+    "displayName": "KaiWiki Bilingual",
+    "description": "Automatically detects adjacent English and Chinese paragraphs and adds reading mode controls.",
+    "category": [
+      "transformer",
+      "component"
+    ],
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 55,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "defaultMode": "both",
+      "storageKey": "kaiwiki-bilingual-mode"
+    },
+    "components": {
+      "BilingualToggle": {
+        "displayName": "Bilingual Toggle",
+        "description": "Switch between English, Chinese, and bilingual reading modes.",
+        "defaultPosition": "beforeBody",
+        "defaultPriority": 25
+      }
+    }
+  }
+}

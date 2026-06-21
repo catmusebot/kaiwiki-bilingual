@@ -1,0 +1,107 @@
+.bilingual-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 2rem;
+  margin: 0;
+  padding: 2px;
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--lightgray) 18%, transparent);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.bilingual-toggle-button {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  padding: 0 0.55rem;
+  border: 0;
+  border-radius: 3px;
+  color: var(--darkgray);
+  background: transparent;
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.bilingual-toggle-button:hover {
+  color: var(--dark);
+  background: color-mix(in srgb, var(--secondary) 9%, transparent);
+}
+
+.bilingual-toggle-button.is-active {
+  color: var(--secondary);
+  background: color-mix(in srgb, var(--secondary) 13%, transparent);
+  font-weight: 600;
+}
+
+.bilingual-pair {
+  margin: 1.1rem 0 1.3rem;
+}
+
+.bilingual-pair > .bilingual-block {
+  display: block;
+  margin: 0;
+  transition:
+    color 0.16s ease,
+    font-size 0.16s ease,
+    margin 0.16s ease;
+}
+
+.bilingual-pair > ul.bilingual-block,
+.bilingual-pair > ol.bilingual-block {
+  padding-inline-start: 1.5rem;
+}
+
+.bilingual-pair > .bilingual-zh {
+  color: var(--darkgray);
+  margin-top: 0.3rem;
+}
+
+:root[data-bilingual-mode="both"] .bilingual-pair > .bilingual-zh {
+  color: color-mix(in srgb, var(--darkgray) 72%, var(--gray));
+}
+
+:root[data-bilingual-mode="en"] .bilingual-pair > .bilingual-zh,
+:root[data-bilingual-mode="zh"] .bilingual-pair > .bilingual-en {
+  display: none;
+}
+
+:root[data-bilingual-mode="zh"] .bilingual-pair > .bilingual-zh,
+:root[data-bilingual-mode="en"] .bilingual-pair > .bilingual-en {
+  margin-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+
+  .bilingual-pair > .bilingual-block {
+    transition:
+      color 0.01ms linear,
+      font-size 0.01ms linear,
+      margin 0.01ms linear;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.14s;
+    animation-timing-function: ease;
+  }
+}
